@@ -95,7 +95,7 @@ body {
 }
 
 .footer-section {
-    background: ;
+    background: color(srgb red green blue);
     color: white;
     position: relative;
 }
