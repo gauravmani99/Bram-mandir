@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+            filter: brightness(0.9);
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .close:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Dynamically generated images -->
+        <script>
+            const galleryContainer = document.querySelector('.gallery-container');
+            const numberOfImages = 50;
+            for (let i = 1; i <= numberOfImages; i++) {
+                const imgWrapper = document.createElement('div');
+                imgWrapper.className = 'gallery-item';
+
+                const img = document.createElement('img');
+                img.src = `images/image1 (${i}).jpg`; // Path to your local images
+                img.alt = `Gallery Image ${i}`;
+
+                const link = document.createElement('a');
+                link.href = `#lightbox-${i}`;
+                link.appendChild(img);
+
+                imgWrapper.appendChild(link);
+                galleryContainer.appendChild(imgWrapper);
+
+                // Lightbox
+                const lightbox = document.createElement('div');
+                lightbox.className = 'lightbox';
+                lightbox.id = `lightbox-${i}`;
+
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = `images/image1 (${i}).jpg`;
+
+                const closeBtn = document.createElement('a');
+                closeBtn.href = "#";
+                closeBtn.className = 'close';
+                closeBtn.textContent = '×';
+
+                lightbox.appendChild(closeBtn);
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+            }
+        </script>
+    </div>
+</body>
+</html>
