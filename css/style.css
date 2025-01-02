@@ -1,9 +1,10 @@
 body {
     font-family: "Rubik", sans-serif;
+    background-color: rgb(242, 242, 245);
 }
 
 .headline {
-    background-color: rgb(2, 100, 213);
+    background-color: rgb(201, 63, 17);
     color: white;
 }
 
@@ -33,7 +34,7 @@ body {
 }
 
 .bn1 {
-    background-color: rgb(2, 100, 213);
+    background-color: rgb(204, 10, 23);
     margin-top: 10px;
     border-radius: 0px;
     color: white;
@@ -256,7 +257,7 @@ body {
 }
 
 .copyright-area {
-    background;
+    /* background ; */
     padding: 25px 0;
 }
 
