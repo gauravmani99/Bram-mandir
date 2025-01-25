@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Mandir Contact Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,118 +13,43 @@
             color: #333;
         }
 
-        header {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        .contact {
+            background: #6a11cb;
             color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin: 5px 0 20px;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-        }
-
-        .section {
             padding: 50px 20px;
             text-align: center;
         }
 
-        .about {
-            background-color: #fff;
-        }
-
-        .about h2, .projects h2, .contact h2 {
+        .contact h2 {
             margin-bottom: 20px;
             font-size: 2em;
-            color: #6a11cb;
-        }
-
-        .about p {
-            font-size: 1.1em;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .projects {
-            background: #eaeaea;
-        }
-
-        .project-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .project {
-            width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .project img {
-            width: 100%;
-            height: auto;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
-        }
-
-        .project h3 {
-            font-size: 1.5em;
-            margin: 15px;
-            color: #2575fc;
-        }
-
-        .contact {
-            background: #6a11cb;
-            color: white;
+            color: #ffd700;
         }
 
         .contact form {
             max-width: 500px;
             margin: 0 auto;
             text-align: left;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #333;
         }
 
         .contact label {
             display: block;
             margin: 10px 0 5px;
+            font-weight: 600;
         }
 
-        .contact input, .contact textarea {
+        .contact input, .contact textarea, .contact select {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: none;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 1em;
         }
 
         .contact button {
@@ -140,77 +65,34 @@
         .contact button:hover {
             background: #e0c200;
         }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-        }
-
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Web Developer | Designer | Coder</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section id="about" class="section about">
-        <h2>About Me</h2>
-        <p>
-            Hi! I am a passionate web developer with a knack for creating beautiful and functional designs. 
-            I love crafting experiences that bring value to users.
-        </p>
-    </section>
-
-    <section id="projects" class="section projects">
-        <h2>My Projects</h2>
-        <div class="project-gallery">
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 1">
-                <h3>Project One</h3>
-            </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 2">
-                <h3>Project Two</h3>
-            </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 3">
-                <h3>Project Three</h3>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section contact">
-        <h2>Contact Me</h2>
+    <section id="contact" class="contact">
+        <h2>Contact the Mandir</h2>
         <form>
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your Name">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+
+            <label for="purpose">Purpose of Contact</label>
+            <select id="purpose" name="purpose">
+                <option value="prayer_request">Prayer Request</option>
+                <option value="donation_inquiry">Donation Inquiry</option>
+                <option value="event_participation">Event Participation</option>
+                <option value="other">Other</option>
+            </select>
 
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea>
 
-            <button type="submit">Send Message</button>
+            <button type="submit">Submit</button>
         </form>
     </section>
-
-    <footer>
-        <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
-    </footer>
 </body>
 </html>
